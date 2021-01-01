@@ -7,7 +7,7 @@ fun! RfcReaderGet(...)
 
     " TODO: use telescope for quick autocomplete
     if a:0 > 0
-        call luaeval('require("rfc-reader").get(_A)', a:0)
+        call luaeval('require("rfc-reader").get(_A)', a:1)
     else
         lua require("rfc-reader").get()
     end
