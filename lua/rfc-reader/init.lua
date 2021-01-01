@@ -24,9 +24,11 @@ function createBuffer(lines)
     return bufh
 end
 
-M.get = function()
-
-    local rfc = vim.fn.input("Rfc Number > ");
+M.get = function(optionalRfcString)
+    local rfc = optionalRfcString
+    if not rfc then
+        rfc = vim.fn.input("Rfc Number > ")
+    end
 
     if not rfc or rfc == "" then
         return

@@ -2,11 +2,11 @@ fun! RfcReaderClear()
     lua require("plenary.reload").reload_module("rfc-reader")
 endfun
 
-fun! RfcReaderGet()
+fun! RfcReaderGet(rfcArg)
     call RfcReaderClear()
 
     " TODO: use telescope for quick autocomplete
-    lua require("rfc-reader").get(ninit)
+    call luaeval('require("rfc-reader").get(_A)', a:rfcArg)
 endfun
 
 com! RfcReaderGet call RfcReaderGet()
